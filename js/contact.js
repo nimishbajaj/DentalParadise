@@ -172,4 +172,16 @@ $(document).ready(function()
 		});
 	}
 
+	$(".testform").on("submit", function(e) {
+
+		e.preventDefault();
+
+		$.post('/process.php', $(this).serialize(), function( d ){
+			console.log('d', d);
+		}).fail(function(xhr, status, error) {
+			alert("Please try submitting the form again.");
+   		});
+
+	});
+
 });
